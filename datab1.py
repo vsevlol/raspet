@@ -22,6 +22,7 @@ print('min=',min)
 mes=int(now.month)
 chis=int(now.day)
 
+
 nomden=calendar.weekday(ye,mes,chis)
 kalen={}
 kalen={0:"mondey",
@@ -45,4 +46,13 @@ conn = mysql.connector.connect(
 
 cur = conn.cursor()
 print("cur=",cur)
+print('den=',den)
+#query="SELECT * FROM %s WHERE chasi LIKE \"%" + chas +"%\" "
+query = 'SELECT * FROM "%%%s" WHERE chasi LIKE "%%%s"'
+#cur.execute(sql, (us,))
+
+cur.execute(query,(den,),(chas,))
+for (post) in cur:
+  print(post)
+
     
