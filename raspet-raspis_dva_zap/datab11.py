@@ -16,7 +16,7 @@ now = datetime.datetime.now()
 ye=int(now.year)
 
 chas=int(now.hour)
-min=int( now.minute)
+mi=int( now.minute)
 
 mes=int(now.month)
 chis=int(now.day)
@@ -30,8 +30,8 @@ kalen={0:"mondey",
          2:"wednesday",
          3:"thursday",
          4:"friday"}
-#den=kalen.get(nomden)
-den="mondey"
+den=kalen.get(nomden)
+
 
 try:
     conn = mysql.connector.connect(
@@ -50,7 +50,8 @@ n=0
 cur = conn.cursor()
 #pdb.set_trace() 
 
-chasi=12
+chasi=chas
+
 
 nasden1=nomden+1
 ur={}
@@ -65,7 +66,7 @@ for (n) in cur:
     kk1=n[1]
     kk2=n[2]
     kk3=n[3] 
-    if kk2>=chasi:
+    if int(kk2)>=chasi:
      kk4=str(kk2)+"."+str(kk3)
      print(kk4,"  ",kk1)
      kk5=kk4+"  "+kk1
